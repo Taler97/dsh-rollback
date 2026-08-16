@@ -80,12 +80,13 @@ function captureInputOf(
 
 /**
  * The agent's session working directory, or `undefined` when the call has no
- * session (direct tool calls). Restores are scoped to it so a rollback never
- * undoes another session's work.
+ * session (direct tool calls). The cwd lives on the session header
+ * (`SessionHeader.cwd`); restores are scoped to it so a rollback never undoes
+ * another session's work.
  */
 function agentCwd(agent: unknown): string | undefined {
   const session = (agent as RollbackAgentView | undefined)?.session
-  return typeof session?.cwd === 'string' ? session.cwd : undefined
+  return typeof session?.header?.cwd === 'string' ? session.header.cwd : undefined
 }
 
 /** Parse the `/rollback` free-form input as a positive count (default 1). */

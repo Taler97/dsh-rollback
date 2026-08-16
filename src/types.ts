@@ -52,8 +52,14 @@ export interface CheckpointRecord {
 export interface RollbackAgentView {
   /** The agent's session, read only for its working directory. */
   session?: {
-    /** Absolute working directory the session was created in, when any. */
-    cwd?: string
+    /**
+     * Creation metadata header. The session's working directory lives here
+     * (`SessionHeader.cwd`), not on the session object itself.
+     */
+    header?: {
+      /** Absolute working directory the session was created in, when any. */
+      cwd?: string
+    }
   }
 }
 
