@@ -1,0 +1,12 @@
+# dsh-rollback bundle layer: mounts the rollback plugin when a profile lists this bundle.
+# The plugin registers no service; restore is exposed through the rollback_files
+# tool (model-facing) and the /rollback command (human), both layered on the
+# tools/result observation event. Configure via the row below.
+- insert:
+    - id: rollback
+      name: dsh-rollback
+      config:
+        mode: auto          # auto | git | snapshot
+        storeDir: ''        # '' = <harness home>/rollback
+        maxRecords: 200
+        gitPath: git
