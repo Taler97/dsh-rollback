@@ -1,0 +1,10 @@
+# dsh-rollback is a single-package repository, but pnpm 11 reads this file for
+# install-time policy. The @deepseek-ai/* peer packages of dsh-tools /
+# dsh-commands are provided by the consumer's dsh installation; some of their
+# transitive peers (dsh-type-meta) are not published to npm at all, so pnpm
+# must not try to resolve or install them here.
+autoInstallPeers: false
+
+peerDependencyRules:
+  ignoreMissing:
+    - '@deepseek-ai/dsh-type-meta'
