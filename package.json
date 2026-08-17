@@ -1,7 +1,7 @@
 {
   "name": "dsh-rollback",
   "description": "File-mutation rollback plugin for DeepSeek Harness — checkpoints write/edit pre-images via git blobs or snapshots and restores them on demand through a model-facing rollback_files tool and a /rollback command. Opt-in bundle: capture rides the tools/result observation event, restore writes files directly (no loop change).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": { "access": "public" },
   "repository": {
     "type": "git",
